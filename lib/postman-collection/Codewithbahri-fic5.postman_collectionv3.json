@@ -1,0 +1,1518 @@
+{
+	"info": {
+		"_postman_id": "1a5ae4fb-4364-4855-9c1a-c3acd94880c2",
+		"name": "Codewithbahri-fic5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3117985"
+	},
+	"item": [
+		{
+			"name": "get all restaurant",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg2ODI0ODI4LCJleHAiOjE2ODk0MTY4Mjh9.-nDLKrXGeYv4B2g8owHleOm_gLVJJ_3JHlQKoleG3CY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/restaurants",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "post restaurant OK 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/restaurants",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:37:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"attributes\": {\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:37:28.761Z\",\n            \"updatedAt\": \"2023-06-15T08:37:28.761Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "post restaurant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg2ODI0ODI4LCJleHAiOjE2ODk0MTY4Mjh9.-nDLKrXGeYv4B2g8owHleOm_gLVJJ_3JHlQKoleG3CY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\":{\n            \"name\": \"Ruminate 5 yes\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"photo\":\"http://103.150.116.14:1337/uploads/Screenshot_2023_06_15_at_15_56_19_47e426c061.png\",\n            \"address\": \"jalan angkasa\",\n            \"userId\":1\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/restaurants",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "post restaurant OK 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/restaurants",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:37:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"attributes\": {\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:37:28.761Z\",\n            \"updatedAt\": \"2023-06-15T08:37:28.761Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "update restaurant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\":{\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/restaurants/2",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"restaurants",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ok 200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/restaurants/2",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"restaurants",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "285"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:45:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"attributes\": {\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:37:28.761Z\",\n            \"updatedAt\": \"2023-06-15T08:45:39.244Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "get detail by id restaurant",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\":{\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/restaurants/2",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"restaurants",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "post restaurant OK 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/restaurants",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:37:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"attributes\": {\n            \"name\": \"Ruminate 2\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:37:28.761Z\",\n            \"updatedAt\": \"2023-06-15T08:37:28.761Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "delete restaurant",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\":{\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/restaurants/2",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"restaurants",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ok 200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"data\":{\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:32:16.381Z\",\n            \"updatedAt\": \"2023-06-15T08:35:25.632Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/restaurants/2",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"restaurants",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "285"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:45:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"attributes\": {\n            \"name\": \"Ruminate 2 update\",\n            \"description\": \"Coffe shop and eatery\",\n            \"latitude\": \"10\",\n            \"longitude\": \"10\",\n            \"address\": \"jalan angkasa\",\n            \"createdAt\": \"2023-06-15T08:37:28.761Z\",\n            \"updatedAt\": \"2023-06-15T08:45:39.244Z\",\n            \"publishedAt\": \"2023-06-15T08:35:25.622Z\"\n        }\n    },\n    \"meta\": {}\n}"
+				}
+			]
+		},
+		{
+			"name": "upload images",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/bahri/Desktop/Screenshot 2023-06-15 at 15.56.19.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/upload",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/Users/bahri/Desktop/Screenshot 2023-06-15 at 08.23.47.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/upload",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1569"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:44:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Screenshot 2023-06-15 at 08.23.47.png\",\n        \"alternativeText\": null,\n        \"caption\": null,\n        \"width\": 1161,\n        \"height\": 591,\n        \"formats\": {\n            \"thumbnail\": {\n                \"name\": \"thumbnail_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"thumbnail_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 245,\n                \"height\": 125,\n                \"size\": 21.73,\n                \"url\": \"/uploads/thumbnail_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"medium\": {\n                \"name\": \"medium_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"medium_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 750,\n                \"height\": 382,\n                \"size\": 123.08,\n                \"url\": \"/uploads/medium_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"small\": {\n                \"name\": \"small_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"small_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 500,\n                \"height\": 255,\n                \"size\": 65.66,\n                \"url\": \"/uploads/small_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"large\": {\n                \"name\": \"large_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"large_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 1000,\n                \"height\": 509,\n                \"size\": 195.32,\n                \"url\": \"/uploads/large_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            }\n        },\n        \"hash\": \"Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n        \"ext\": \".png\",\n        \"mime\": \"image/png\",\n        \"size\": 52.18,\n        \"url\": \"/uploads/Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\",\n        \"previewUrl\": null,\n        \"provider\": \"local\",\n        \"provider_metadata\": null,\n        \"createdAt\": \"2023-06-15T08:44:11.439Z\",\n        \"updatedAt\": \"2023-06-15T08:44:11.439Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get all upload images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/bahri/Downloads/restaurant-white-background/16716.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/upload/files",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"upload",
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/Users/bahri/Desktop/Screenshot 2023-06-15 at 08.23.47.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/upload",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1569"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 08:44:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Screenshot 2023-06-15 at 08.23.47.png\",\n        \"alternativeText\": null,\n        \"caption\": null,\n        \"width\": 1161,\n        \"height\": 591,\n        \"formats\": {\n            \"thumbnail\": {\n                \"name\": \"thumbnail_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"thumbnail_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 245,\n                \"height\": 125,\n                \"size\": 21.73,\n                \"url\": \"/uploads/thumbnail_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"medium\": {\n                \"name\": \"medium_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"medium_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 750,\n                \"height\": 382,\n                \"size\": 123.08,\n                \"url\": \"/uploads/medium_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"small\": {\n                \"name\": \"small_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"small_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 500,\n                \"height\": 255,\n                \"size\": 65.66,\n                \"url\": \"/uploads/small_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            },\n            \"large\": {\n                \"name\": \"large_Screenshot 2023-06-15 at 08.23.47.png\",\n                \"hash\": \"large_Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 1000,\n                \"height\": 509,\n                \"size\": 195.32,\n                \"url\": \"/uploads/large_Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\"\n            }\n        },\n        \"hash\": \"Screenshot_2023_06_15_at_08_23_47_68a340f4c3\",\n        \"ext\": \".png\",\n        \"mime\": \"image/png\",\n        \"size\": 52.18,\n        \"url\": \"/uploads/Screenshot_2023_06_15_at_08_23_47_68a340f4c3.png\",\n        \"previewUrl\": null,\n        \"provider\": \"local\",\n        \"provider_metadata\": null,\n        \"createdAt\": \"2023-06-15T08:44:11.439Z\",\n        \"updatedAt\": \"2023-06-15T08:44:11.439Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "auth register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"bahri3\",\n    \"password\": \"123456\",\n    \"email\": \"bahri3@gmail.com\",\n    \"username\": \"bahri3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/auth/local/register",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"auth",
+						"local",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"bahri\",\n                                \"password\": \"123456\",\n                                \"email\": \"bahri@gmail.com\",\n                                \"username\": \"bahri\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/auth/local/register",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"auth",
+								"local",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "10"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "9"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1686822621"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "338"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 09:49:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg2ODIyNTYwLCJleHAiOjE2ODk0MTQ1NjB9.ebh4B1ntq0DPqa3sqYHuICkl4DH_K2xtXMurgwcnLKY\",\n    \"user\": {\n        \"id\": 1,\n        \"username\": \"bahri\",\n        \"email\": \"bahri@gmail.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"blocked\": false,\n        \"createdAt\": \"2023-06-15T09:49:20.544Z\",\n        \"updatedAt\": \"2023-06-15T09:49:20.544Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "auth login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"identifier\": \"bahri3@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/auth/local",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"auth",
+						"local"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"bahri\",\n                                \"password\": \"123456\",\n                                \"email\": \"bahri@gmail.com\",\n                                \"username\": \"bahri\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/auth/local/register",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"auth",
+								"local",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "10"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "9"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1686822621"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "338"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 09:49:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg2ODIyNTYwLCJleHAiOjE2ODk0MTQ1NjB9.ebh4B1ntq0DPqa3sqYHuICkl4DH_K2xtXMurgwcnLKY\",\n    \"user\": {\n        \"id\": 1,\n        \"username\": \"bahri\",\n        \"email\": \"bahri@gmail.com\",\n        \"provider\": \"local\",\n        \"confirmed\": true,\n        \"blocked\": false,\n        \"createdAt\": \"2023-06-15T09:49:20.544Z\",\n        \"updatedAt\": \"2023-06-15T09:49:20.544Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "auth get profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg2ODIyOTYwLCJleHAiOjE2ODk0MTQ5NjB9.fXisw0HgoANZgtE7d88LJOrQclw2BTS7xd8eX0vJRQk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg2ODIyNTYwLCJleHAiOjE2ODk0MTQ1NjB9.ebh4B1ntq0DPqa3sqYHuICkl4DH_K2xtXMurgwcnLKY",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/users/1",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "403 forbidden",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/users/1",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "95"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 09:54:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": null,\n    \"error\": {\n        \"status\": 403,\n        \"name\": \"ForbiddenError\",\n        \"message\": \"Forbidden\",\n        \"details\": {}\n    }\n}"
+				},
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg2ODIyNTYwLCJleHAiOjE2ODk0MTQ1NjB9.ebh4B1ntq0DPqa3sqYHuICkl4DH_K2xtXMurgwcnLKY",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/users/1",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Jun 2023 10:02:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"username\": \"bahri\",\n    \"email\": \"bahri@gmail.com\",\n    \"provider\": \"local\",\n    \"confirmed\": true,\n    \"blocked\": false,\n    \"createdAt\": \"2023-06-15T09:49:20.544Z\",\n    \"updatedAt\": \"2023-06-15T09:49:20.544Z\"\n}"
+				}
+			]
+		}
+	]
+}
