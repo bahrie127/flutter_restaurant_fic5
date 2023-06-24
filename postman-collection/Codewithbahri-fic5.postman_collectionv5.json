@@ -1513,6 +1513,172 @@
 					"body": "{\n    \"id\": 1,\n    \"username\": \"bahri\",\n    \"email\": \"bahri@gmail.com\",\n    \"provider\": \"local\",\n    \"confirmed\": true,\n    \"blocked\": false,\n    \"createdAt\": \"2023-06-15T09:49:20.544Z\",\n    \"updatedAt\": \"2023-06-15T09:49:20.544Z\"\n}"
 				}
 			]
+		},
+		{
+			"name": "upload image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjg2ODI0ODI4LCJleHAiOjE2ODk0MTY4Mjh9.-nDLKrXGeYv4B2g8owHleOm_gLVJJ_3JHlQKoleG3CY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/bahri/Desktop/Screenshot 2023-06-21 at 16.04.42.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://103.150.116.14:1337/api/upload",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 Ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/Users/bahri/Desktop/Screenshot 2023-06-21 at 16.04.42.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://103.150.116.14:1337/api/upload",
+							"protocol": "http",
+							"host": [
+								"103",
+								"150",
+								"116",
+								"14"
+							],
+							"port": "1337",
+							"path": [
+								"api",
+								"upload"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "connect-src 'self' https:;img-src 'self' data: blob: https://market-assets.strapi.io;media-src 'self' data: blob:;default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline'"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Strapi <strapi.io>"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1571"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Jun 2023 08:38:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 9,\n        \"name\": \"Screenshot 2023-06-21 at 16.04.42.png\",\n        \"alternativeText\": null,\n        \"caption\": null,\n        \"width\": 1350,\n        \"height\": 1236,\n        \"formats\": {\n            \"thumbnail\": {\n                \"name\": \"thumbnail_Screenshot 2023-06-21 at 16.04.42.png\",\n                \"hash\": \"thumbnail_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 170,\n                \"height\": 156,\n                \"size\": 20.6,\n                \"url\": \"/uploads/thumbnail_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe.png\"\n            },\n            \"small\": {\n                \"name\": \"small_Screenshot 2023-06-21 at 16.04.42.png\",\n                \"hash\": \"small_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 500,\n                \"height\": 458,\n                \"size\": 138.04,\n                \"url\": \"/uploads/small_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe.png\"\n            },\n            \"medium\": {\n                \"name\": \"medium_Screenshot 2023-06-21 at 16.04.42.png\",\n                \"hash\": \"medium_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 750,\n                \"height\": 687,\n                \"size\": 366.82,\n                \"url\": \"/uploads/medium_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe.png\"\n            },\n            \"large\": {\n                \"name\": \"large_Screenshot 2023-06-21 at 16.04.42.png\",\n                \"hash\": \"large_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe\",\n                \"ext\": \".png\",\n                \"mime\": \"image/png\",\n                \"path\": null,\n                \"width\": 1000,\n                \"height\": 916,\n                \"size\": 671.92,\n                \"url\": \"/uploads/large_Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe.png\"\n            }\n        },\n        \"hash\": \"Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe\",\n        \"ext\": \".png\",\n        \"mime\": \"image/png\",\n        \"size\": 142.47,\n        \"url\": \"/uploads/Screenshot_2023_06_21_at_16_04_42_b7a9ab01fe.png\",\n        \"previewUrl\": null,\n        \"provider\": \"local\",\n        \"provider_metadata\": null,\n        \"createdAt\": \"2023-06-24T08:38:41.562Z\",\n        \"updatedAt\": \"2023-06-24T08:38:41.562Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://103.150.116.14:1337/uploads/large_Screenshot_2023_06_15_at_08_16_35_c4ff484c83.png",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://103.150.116.14:1337/uploads/large_Screenshot_2023_06_15_at_08_16_35_c4ff484c83.png",
+					"protocol": "http",
+					"host": [
+						"103",
+						"150",
+						"116",
+						"14"
+					],
+					"port": "1337",
+					"path": [
+						"uploads",
+						"large_Screenshot_2023_06_15_at_08_16_35_c4ff484c83.png"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

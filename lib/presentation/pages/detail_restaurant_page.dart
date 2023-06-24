@@ -68,12 +68,9 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
           return state.maybeWhen(
             orElse: () => const Text('No detail'),
             loaded: (model) {
-              context
-                  .read<GmapBloc>()
-                  .add(const GmapEvent.getCurrentLocation());
-
               final lat = double.parse(model.data.attributes.latitude);
               final lng = double.parse(model.data.attributes.longitude);
+              print('latlng: $lat, $lng');
               createMarker(lat, lng, model.data.attributes.address);
               return ListView(
                 children: [
