@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_restaurant_fic5/bloc/detail_product/detail_product_bloc.dart';
-import 'package:flutter_restaurant_fic5/bloc/gmap/gmap_bloc.dart';
-import 'package:flutter_restaurant_fic5/data/models/responses/add_product_response_model.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -74,7 +72,7 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
               createMarker(lat, lng, model.data.attributes.address);
               return ListView(
                 children: [
-                  Image.network(model.data.attributes.photo),
+                  Image.network(model.data.attributes.photo ?? 'https://picsum.photos/200/300'),
                   const SizedBox(
                     height: 16,
                   ),

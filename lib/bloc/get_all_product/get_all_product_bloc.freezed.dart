@@ -20,18 +20,21 @@ mixin _$GetAllProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() get,
+    required TResult Function() getByUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? get,
+    TResult? Function()? getByUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? get,
+    TResult Function()? getByUserId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$GetAllProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Get value) get,
+    required TResult Function(_GetByUserId value) getByUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Get value)? get,
+    TResult? Function(_GetByUserId value)? getByUserId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Get value)? get,
+    TResult Function(_GetByUserId value)? getByUserId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() get,
+    required TResult Function() getByUserId,
   }) {
     return started();
   }
@@ -122,6 +129,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? get,
+    TResult? Function()? getByUserId,
   }) {
     return started?.call();
   }
@@ -131,6 +139,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? get,
+    TResult Function()? getByUserId,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,6 +153,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Get value) get,
+    required TResult Function(_GetByUserId value) getByUserId,
   }) {
     return started(this);
   }
@@ -153,6 +163,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Get value)? get,
+    TResult? Function(_GetByUserId value)? getByUserId,
   }) {
     return started?.call(this);
   }
@@ -162,6 +173,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Get value)? get,
+    TResult Function(_GetByUserId value)? getByUserId,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -213,6 +225,7 @@ class _$_Get implements _Get {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() get,
+    required TResult Function() getByUserId,
   }) {
     return get();
   }
@@ -222,6 +235,7 @@ class _$_Get implements _Get {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? get,
+    TResult? Function()? getByUserId,
   }) {
     return get?.call();
   }
@@ -231,6 +245,7 @@ class _$_Get implements _Get {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? get,
+    TResult Function()? getByUserId,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -244,6 +259,7 @@ class _$_Get implements _Get {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Get value) get,
+    required TResult Function(_GetByUserId value) getByUserId,
   }) {
     return get(this);
   }
@@ -253,6 +269,7 @@ class _$_Get implements _Get {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Get value)? get,
+    TResult? Function(_GetByUserId value)? getByUserId,
   }) {
     return get?.call(this);
   }
@@ -262,6 +279,7 @@ class _$_Get implements _Get {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Get value)? get,
+    TResult Function(_GetByUserId value)? getByUserId,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -273,6 +291,114 @@ class _$_Get implements _Get {
 
 abstract class _Get implements GetAllProductEvent {
   const factory _Get() = _$_Get;
+}
+
+/// @nodoc
+abstract class _$$_GetByUserIdCopyWith<$Res> {
+  factory _$$_GetByUserIdCopyWith(
+          _$_GetByUserId value, $Res Function(_$_GetByUserId) then) =
+      __$$_GetByUserIdCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetByUserIdCopyWithImpl<$Res>
+    extends _$GetAllProductEventCopyWithImpl<$Res, _$_GetByUserId>
+    implements _$$_GetByUserIdCopyWith<$Res> {
+  __$$_GetByUserIdCopyWithImpl(
+      _$_GetByUserId _value, $Res Function(_$_GetByUserId) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetByUserId implements _GetByUserId {
+  const _$_GetByUserId();
+
+  @override
+  String toString() {
+    return 'GetAllProductEvent.getByUserId()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetByUserId);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() get,
+    required TResult Function() getByUserId,
+  }) {
+    return getByUserId();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? get,
+    TResult? Function()? getByUserId,
+  }) {
+    return getByUserId?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? get,
+    TResult Function()? getByUserId,
+    required TResult orElse(),
+  }) {
+    if (getByUserId != null) {
+      return getByUserId();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Get value) get,
+    required TResult Function(_GetByUserId value) getByUserId,
+  }) {
+    return getByUserId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Get value)? get,
+    TResult? Function(_GetByUserId value)? getByUserId,
+  }) {
+    return getByUserId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Get value)? get,
+    TResult Function(_GetByUserId value)? getByUserId,
+    required TResult orElse(),
+  }) {
+    if (getByUserId != null) {
+      return getByUserId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetByUserId implements GetAllProductEvent {
+  const factory _GetByUserId() = _$_GetByUserId;
 }
 
 /// @nodoc

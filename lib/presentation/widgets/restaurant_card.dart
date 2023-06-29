@@ -21,7 +21,8 @@ class RestaurantCard extends StatelessWidget {
           subtitle: Text(data.attributes.description),
           leading: CircleAvatar(
             radius: 18,
-            child: Image.network(data.attributes.photo),
+            child: Image.network(
+                data.attributes.photo ?? 'https://picsum.photos/200/300'),
           ),
         ),
       ),

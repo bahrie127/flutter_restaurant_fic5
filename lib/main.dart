@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_restaurant_fic5/bloc/add_product/add_product_bloc.dart';
+import 'package:flutter_restaurant_fic5/bloc/login/login_bloc.dart';
+import 'package:flutter_restaurant_fic5/bloc/register/register_bloc.dart';
+import 'package:flutter_restaurant_fic5/presentation/pages/add_restaurant_page.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:flutter_restaurant_fic5/bloc/gmap/gmap_bloc.dart';
 import 'package:flutter_restaurant_fic5/data/local_datasources/auth_local_datasource.dart';
-import 'package:flutter_restaurant_fic5/data/models/responses/auth_response_model.dart';
 import 'package:flutter_restaurant_fic5/data/remote_datasources/gmap_datasource.dart';
 import 'package:flutter_restaurant_fic5/data/remote_datasources/restaurant_datasource.dart';
 import 'package:flutter_restaurant_fic5/presentation/pages/detail_restaurant_page.dart';
@@ -10,10 +15,10 @@ import 'package:flutter_restaurant_fic5/presentation/pages/home_page.dart';
 import 'package:flutter_restaurant_fic5/presentation/pages/login_page.dart';
 import 'package:flutter_restaurant_fic5/presentation/pages/my_restaurant_page.dart';
 import 'package:flutter_restaurant_fic5/presentation/pages/register_page.dart';
-import 'package:go_router/go_router.dart';
 
 import 'bloc/detail_product/detail_product_bloc.dart';
 import 'bloc/get_all_product/get_all_product_bloc.dart';
+import 'data/remote_datasources/auth_datasource.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +39,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GmapBloc(GmapDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => RegisterBloc(AuthDataSource()),
+        ),
+        BlocProvider(
+          create: (context) => LoginBloc(AuthDataSource()),
+        ),
+        BlocProvider(
+          create: (context) => AddProductBloc(RestaurantDatasource()),
         ),
       ],
       child: MaterialApp.router(
@@ -75,6 +89,14 @@ class MyApp extends StatelessWidget {
               path: '${DetailRestaurantPage.routeName}/:restaurantId',
               builder: (context, state) => DetailRestaurantPage(
                   id: int.parse(state.pathParameters['restaurantId']!)),
+            ),
+            GoRoute(
+              path: MyRestaurantPage.routeName,
+              builder: (context, state) => const MyRestaurantPage(),
+            ),
+            GoRoute(
+              path: AddRestaurantPage.routeName,
+              builder: (context, state) => const AddRestaurantPage(),
             ),
           ],
         ),

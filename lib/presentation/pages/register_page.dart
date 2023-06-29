@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_restaurant_fic5/data/local_datasources/auth_local_datasource.dart';
+import 'package:flutter_restaurant_fic5/data/models/requests/register_request_model.dart';
+import 'package:flutter_restaurant_fic5/presentation/pages/my_restaurant_page.dart';
 
 import 'package:go_router/go_router.dart';
 
+import '../../bloc/register/register_bloc.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -14,16 +18,16 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController? _username;
-  TextEditingController? _name;
+  TextEditingController? _usernameController;
+  TextEditingController? _nameController;
   TextEditingController? _emailController;
   TextEditingController? _passwordController;
   bool isHide = true;
 
   @override
   void initState() {
-    _username = TextEditingController();
-    _name = TextEditingController();
+    _usernameController = TextEditingController();
+    _nameController = TextEditingController();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
     super.initState();
@@ -32,8 +36,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   void dispose() {
     super.dispose();
-    _username!.dispose();
-    _name!.dispose();
+    _usernameController!.dispose();
+    _nameController!.dispose();
     _emailController!.dispose();
     _passwordController!.dispose();
   }
@@ -76,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       height: 20,
                     ),
                     TextField(
-                      controller: _name,
+                      controller: _nameController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Name",
@@ -86,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       height: 20,
                     ),
                     TextField(
-                      controller: _username,
+                      controller: _usernameController,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Username",
@@ -122,6 +126,44 @@ class _RegisterPageState extends State<RegisterPage> {
                           },
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 20),
+                    BlocConsumer<RegisterBloc, RegisterState>(
+                      listener: (context, state) {
+                        state.maybeWhen(
+                          orElse: () {},
+                          error: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Error')));
+                          },
+                          loaded: (model) async {
+                            await AuthLocalDatasource().saveAuthData(model);
+                            context.go(MyRestaurantPage.routeName);
+                          },
+                        );
+                      },
+                      builder: (context, state) {
+                        return state.maybeWhen(
+                          orElse: () {
+                            return ElevatedButton(
+                                onPressed: () {
+                                  final requestModel = RegisterRequestModel(
+                                    name: _nameController!.text,
+                                    password: _passwordController!.text,
+                                    email: _emailController!.text,
+                                    username: _usernameController!.text,
+                                  );
+                                  context
+                                      .read<RegisterBloc>()
+                                      .add(RegisterEvent.add(requestModel));
+                                },
+                                child: const Text('Register'));
+                          },
+                          loading: () => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      },
                     )
                   ],
                 ),
@@ -138,7 +180,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextButton(
                           onPressed: () {
-                            context.push(LoginPage.routeName,);
+                            context.push(
+                              LoginPage.routeName,
+                            );
                           },
                           child: const Text(
                             'Login',

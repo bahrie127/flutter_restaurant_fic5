@@ -6,7 +6,6 @@ import 'package:flutter_restaurant_fic5/presentation/widgets/restaurant_card.dar
 
 import 'package:go_router/go_router.dart';
 
-import 'login_page.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home';

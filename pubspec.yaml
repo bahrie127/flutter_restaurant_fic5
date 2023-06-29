@@ -41,6 +41,7 @@ dependencies:
   go_router: ^8.0.5
   google_maps_flutter: ^2.2.6
   http: ^1.0.0
+  image_picker: ^1.0.0
   json_annotation: ^4.8.1
   json_serializable: ^6.7.0
   location: ^4.4.0
