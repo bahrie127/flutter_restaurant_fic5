@@ -23,6 +23,7 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
   @override
   void initState() {
     context.read<DetailProductBloc>().add(DetailProductEvent.get(widget.id));
+    context.read<GmapBloc>().add(const GmapEvent.getCurrentLocation());
     super.initState();
   }
 
@@ -62,6 +63,8 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
     return true;
   }
 
+  LatLng? positionDestination;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +76,7 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
             loaded: (model) {
               final lat = double.parse(model.data.attributes.latitude);
               final lng = double.parse(model.data.attributes.longitude);
+              positionDestination = LatLng(lat, lng);
               print('latlng: $lat, $lng');
               position = LatLng(lat, lng);
               createMarker(lat, lng, model.data.attributes.address);
@@ -120,18 +124,20 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
                             child: CircularProgressIndicator(),
                           );
                         },
+                        error: (error) {
+                          return Text('error: $error');
+                        },
                         loaded: (model) {
                           return ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return DirectionPage(
-                                    startLocation: model.latLng!,
-                                    destinationLocation: position!);
-                              }));
-                            },
-                            child: const Text('Direction'),
-                          );
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return DirectionPage(
+                                      origin: model.latLng!,
+                                      destination: positionDestination!);
+                                }));
+                              },
+                              child: const Text('Derection'));
                         },
                       );
                     },

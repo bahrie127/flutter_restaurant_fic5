@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_restaurant_fic5/data/models/direction.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-
-import '../../data/models/direction.dart';
 
 class DirectionPage extends StatefulWidget {
   const DirectionPage({
     Key? key,
-    required this.startLocation,
-    required this.destinationLocation,
+    required this.origin,
+    required this.destination,
   }) : super(key: key);
-  final LatLng startLocation;
-  final LatLng destinationLocation;
+
+  final LatLng origin;
+  final LatLng destination;
 
   @override
   State<DirectionPage> createState() => _DirectionPageState();
@@ -25,8 +25,6 @@ class _DirectionPageState extends State<DirectionPage> {
 
   final Location location = Location();
 
-  bool isNavigationOn = false;
-
   Future<void> setupLocation() async {
     late bool serviceEnabled;
     late PermissionStatus permissionGranted;
@@ -39,15 +37,18 @@ class _DirectionPageState extends State<DirectionPage> {
         return;
       }
     }
+
     permissionGranted = await location.hasPermission();
     if (permissionGranted == PermissionStatus.denied) {
       permissionGranted = await location.requestPermission();
-      if (permissionGranted != PermissionStatus.denied) {
+      if (permissionGranted == PermissionStatus.denied) {
         debugPrint('Location permission is denied');
         return;
       }
     }
   }
+
+  bool isNavigationOn = false;
 
   @override
   void initState() {
@@ -58,11 +59,13 @@ class _DirectionPageState extends State<DirectionPage> {
     });
 
     location.onLocationChanged.listen((event) {
+      print('active');
       if (isNavigationOn) {
-        final latLng = LatLng(event.latitude!, event.longitude!);
+        print('active on');
+        final latlng = LatLng(event.latitude!, event.longitude!);
 
         CameraPosition cameraPosition = CameraPosition(
-          target: latLng,
+          target: latlng,
           zoom: 16,
           tilt: 80,
           bearing: 30,
@@ -74,108 +77,21 @@ class _DirectionPageState extends State<DirectionPage> {
 
         setState(() {
           markers.removeWhere((element) => element.markerId.value == 'source');
-          markers.add(
-            Marker(
-              markerId: const MarkerId('source'),
-              position: latLng,
-              icon: BitmapDescriptor.defaultMarkerWithHue(
-                BitmapDescriptor.hueOrange,
-              ),
+          markers.add(Marker(
+            markerId: const MarkerId('source'),
+            position: latlng,
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+              BitmapDescriptor.hueRed,
             ),
-          );
+          ));
         });
       }
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: widget.startLocation,
-              zoom: 18,
-            ),
-            markers: markers,
-            zoomControlsEnabled: false,
-            mapToolbarEnabled: false,
-            myLocationButtonEnabled: false,
-            polylines: polylines,
-            onMapCreated: (controller) {
-              final startMarker = Marker(
-                markerId: const MarkerId('source'),
-                position: widget.startLocation,
-                icon: BitmapDescriptor.defaultMarkerWithHue(
-                  BitmapDescriptor.hueYellow,
-                ),
-              );
-              final destinationMarker = Marker(
-                markerId: const MarkerId('destination'),
-                position: widget.destinationLocation,
-                icon: BitmapDescriptor.defaultMarkerWithHue(
-                  BitmapDescriptor.hueYellow,
-                ),
-              );
-
-              setState(() {
-                mapController = controller;
-                markers.addAll([startMarker, destinationMarker]);
-              });
-            },
-          ),
-          Positioned(
-              bottom: 16,
-              right: 16,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  FloatingActionButton(
-                    onPressed: () async {
-                      setState(() {
-                        isNavigationOn = false;
-                        markers.removeWhere(
-                            (element) => element.markerId.value == 'source');
-                        markers.add(
-                          Marker(
-                            markerId: const MarkerId('source'),
-                            position: widget.startLocation,
-                            icon: BitmapDescriptor.defaultMarkerWithHue(
-                              BitmapDescriptor.hueRed,
-                            ),
-                          ),
-                        );
-                      });
-                      await setPolylines(
-                        widget.startLocation,
-                        widget.destinationLocation,
-                      );
-                    },
-                    child: const Icon(Icons.directions),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  FloatingActionButton(
-                    onPressed: () {
-                      setState(() {
-                        isNavigationOn = true;
-                      });
-                    },
-                    child: const Icon(Icons.navigation),
-                  )
-                ],
-              ))
-        ],
-      )),
-    );
-  }
-
   Future<void> setPolylines(LatLng origin, LatLng destination) async {
     final result = await Direction.getDirections(
-      googleMapsApiKey: 'AIzaSyCvLVqdIcaudtHhsMKkbE6T22Oxb9wMLQw',
+      googleMapsApiKey: 'AIzaSyAkAU2Dx4hz-X1OAFzGy38q15V9Miw0gkA',
       origin: origin,
       destination: destination,
     );
@@ -198,6 +114,89 @@ class _DirectionPageState extends State<DirectionPage> {
 
     mapController.animateCamera(
       CameraUpdate.newLatLngBounds(result!.bounds, 50),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Stack(
+          children: [
+            GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: widget.origin,
+                zoom: 18,
+              ),
+              markers: markers,
+              zoomControlsEnabled: false,
+              mapToolbarEnabled: false,
+              myLocationButtonEnabled: false,
+              polylines: polylines,
+              onMapCreated: (controller) {
+                final originMarker = Marker(
+                  markerId: const MarkerId('source'),
+                  position: widget.origin,
+                  icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed,
+                  ),
+                );
+
+                final destinationMarker = Marker(
+                  markerId: const MarkerId('destination'),
+                  position: widget.destination,
+                  icon: BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueRed,
+                  ),
+                );
+
+                setState(() {
+                  mapController = controller;
+                  markers.addAll([originMarker, destinationMarker]);
+                });
+              },
+            ),
+            Positioned(
+                bottom: 16,
+                right: 16,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () async {
+                        markers.removeWhere(
+                            (element) => element.markerId.value == 'source');
+                        markers.add(Marker(
+                            markerId: const MarkerId('source'),
+                            position: widget.origin,
+                            icon: BitmapDescriptor.defaultMarkerWithHue(
+                                BitmapDescriptor.hueRed)));
+                        markers.add(Marker(
+                            markerId: const MarkerId('des'),
+                            position: widget.destination,
+                            icon: BitmapDescriptor.defaultMarkerWithHue(
+                                BitmapDescriptor.hueRed)));
+                        setState(() {});
+                        await setPolylines(widget.origin, widget.destination);
+                      },
+                      child: const Icon(Icons.navigation),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          isNavigationOn = true;
+                        });
+                      },
+                      child: const Icon(Icons.run_circle),
+                    )
+                  ],
+                ))
+          ],
+        ),
+      ),
     );
   }
 }
