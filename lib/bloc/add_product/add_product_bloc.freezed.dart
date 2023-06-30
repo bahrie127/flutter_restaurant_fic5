@@ -19,19 +19,19 @@ mixin _$AddProductEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(AddProductRequestModel model) add,
+    required TResult Function(AddProductRequestModel model, XFile image) add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(AddProductRequestModel model)? add,
+    TResult? Function(AddProductRequestModel model, XFile image)? add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(AddProductRequestModel model)? add,
+    TResult Function(AddProductRequestModel model, XFile image)? add,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,7 +112,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(AddProductRequestModel model) add,
+    required TResult Function(AddProductRequestModel model, XFile image) add,
   }) {
     return started();
   }
@@ -121,7 +121,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(AddProductRequestModel model)? add,
+    TResult? Function(AddProductRequestModel model, XFile image)? add,
   }) {
     return started?.call();
   }
@@ -130,7 +130,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(AddProductRequestModel model)? add,
+    TResult Function(AddProductRequestModel model, XFile image)? add,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -180,7 +180,7 @@ abstract class _$$_AddCopyWith<$Res> {
   factory _$$_AddCopyWith(_$_Add value, $Res Function(_$_Add) then) =
       __$$_AddCopyWithImpl<$Res>;
   @useResult
-  $Res call({AddProductRequestModel model});
+  $Res call({AddProductRequestModel model, XFile image});
 
   $AddProductRequestModelCopyWith<$Res> get model;
 }
@@ -196,12 +196,17 @@ class __$$_AddCopyWithImpl<$Res>
   @override
   $Res call({
     Object? model = null,
+    Object? image = null,
   }) {
     return _then(_$_Add(
       null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as AddProductRequestModel,
+      null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as XFile,
     ));
   }
 
@@ -217,14 +222,16 @@ class __$$_AddCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Add implements _Add {
-  const _$_Add(this.model);
+  const _$_Add(this.model, this.image);
 
   @override
   final AddProductRequestModel model;
+  @override
+  final XFile image;
 
   @override
   String toString() {
-    return 'AddProductEvent.add(model: $model)';
+    return 'AddProductEvent.add(model: $model, image: $image)';
   }
 
   @override
@@ -232,11 +239,12 @@ class _$_Add implements _Add {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Add &&
-            (identical(other.model, model) || other.model == model));
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.image, image) || other.image == image));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, model);
+  int get hashCode => Object.hash(runtimeType, model, image);
 
   @JsonKey(ignore: true)
   @override
@@ -248,29 +256,29 @@ class _$_Add implements _Add {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(AddProductRequestModel model) add,
+    required TResult Function(AddProductRequestModel model, XFile image) add,
   }) {
-    return add(model);
+    return add(model, image);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(AddProductRequestModel model)? add,
+    TResult? Function(AddProductRequestModel model, XFile image)? add,
   }) {
-    return add?.call(model);
+    return add?.call(model, image);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(AddProductRequestModel model)? add,
+    TResult Function(AddProductRequestModel model, XFile image)? add,
     required TResult orElse(),
   }) {
     if (add != null) {
-      return add(model);
+      return add(model, image);
     }
     return orElse();
   }
@@ -308,9 +316,11 @@ class _$_Add implements _Add {
 }
 
 abstract class _Add implements AddProductEvent {
-  const factory _Add(final AddProductRequestModel model) = _$_Add;
+  const factory _Add(final AddProductRequestModel model, final XFile image) =
+      _$_Add;
 
   AddProductRequestModel get model;
+  XFile get image;
   @JsonKey(ignore: true)
   _$$_AddCopyWith<_$_Add> get copyWith => throw _privateConstructorUsedError;
 }

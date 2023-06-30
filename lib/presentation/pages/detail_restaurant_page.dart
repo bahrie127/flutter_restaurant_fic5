@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_restaurant_fic5/bloc/detail_product/detail_product_bloc.dart';
+import 'package:flutter_restaurant_fic5/presentation/pages/direction_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+
+import '../../bloc/gmap/gmap_bloc.dart';
 
 class DetailRestaurantPage extends StatefulWidget {
   static const routeName = '/detail';
@@ -24,6 +27,8 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
   }
 
   final Set<Marker> markers = {};
+
+  LatLng? position;
 
   void createMarker(double lat, double lng, String address) {
     final marker = Marker(
@@ -69,10 +74,12 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
               final lat = double.parse(model.data.attributes.latitude);
               final lng = double.parse(model.data.attributes.longitude);
               print('latlng: $lat, $lng');
+              position = LatLng(lat, lng);
               createMarker(lat, lng, model.data.attributes.address);
               return ListView(
                 children: [
-                  Image.network(model.data.attributes.photo ?? 'https://picsum.photos/200/300'),
+                  Image.network(model.data.attributes.photo ??
+                      'https://picsum.photos/200/300'),
                   const SizedBox(
                     height: 16,
                   ),
@@ -101,6 +108,33 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
                         zoom: 15,
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  BlocBuilder<GmapBloc, GmapState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        orElse: () {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                        loaded: (model) {
+                          return ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DirectionPage(
+                                    startLocation: model.latLng!,
+                                    destinationLocation: position!);
+                              }));
+                            },
+                            child: const Text('Direction'),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               );

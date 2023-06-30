@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_restaurant_fic5/bloc/add_product/add_product_bloc.dart';
@@ -74,70 +76,36 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
           children: [
-            // picture != null
-            //     ? SizedBox(
-            //         height: 200,
-            //         width: 200,
-            //         child: Image.file(File(picture!.path)))
-            //     : Container(
-            //         height: 200,
-            //         width: 200,
-            //         decoration: BoxDecoration(border: Border.all()),
-            //       ),
-            // const SizedBox(
-            //   height: 8,
-            // ),
-            // multiplePicture != null
-            //     ? Row(
-            //         children: [
-            //           ...multiplePicture!
-            //               .map((e) => SizedBox(
-            //                   height: 120,
-            //                   width: 120,
-            //                   child: Padding(
-            //                     padding:
-            //                         const EdgeInsets.symmetric(horizontal: 8),
-            //                     child: Image.file(File(e.path)),
-            //                   )))
-            //               .toList()
-            //         ],
-            //       )
-            //     : SizedBox(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     ElevatedButton(
-            //         style: ElevatedButton.styleFrom(
-            //           backgroundColor: context.theme.appColors.primary,
-            //         ),
-            //         onPressed: () async {
-            //           await availableCameras().then((value) => Navigator.push(
-            //                   context, MaterialPageRoute(builder: (_) {
-            //                 return CameraPage(
-            //                   takePicture: takePicture,
-            //                   cameras: value,
-            //                 );
-            //               })));
-            //           // getImage(ImageSource.camera);
-            //         },
-            //         child: const Text('Camera')),
-            //     const SizedBox(
-            //       width: 8,
-            //     ),
-            //     ElevatedButton(
-            //       style: ElevatedButton.styleFrom(
-            //         backgroundColor: context.theme.appColors.primary,
-            //       ),
-            //       onPressed: () {
-            //         getImage(ImageSource.gallery);
-            //         // getMultipleImage();
-            //       },
-            //       child: const Text(
-            //         "Galery",
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            picture != null
+                ? SizedBox(
+                    height: 200,
+                    width: 200,
+                    child: Image.file(File(picture!.path)))
+                : Container(
+                    height: 200,
+                    width: 200,
+                    decoration: BoxDecoration(border: Border.all()),
+                  ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      // backgroundColor: context.theme.appColors.primary,
+                      ),
+                  onPressed: () {
+                    getImage(ImageSource.gallery);
+                    // getMultipleImage();
+                  },
+                  child: const Text(
+                    "Galery",
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
               height: 24,
             ),
@@ -194,7 +162,7 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
                           ));
                           context
                               .read<AddProductBloc>()
-                              .add(AddProductEvent.add(model));
+                              .add(AddProductEvent.add(model, picture!));
                         },
                         style: ElevatedButton.styleFrom(
                             // backgroundColor: context.theme.appColors.primary,
