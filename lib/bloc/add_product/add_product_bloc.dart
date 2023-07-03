@@ -20,18 +20,18 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
     on<_Add>((event, emit) async {
       emit(const _Loading());
       final uploadResult = await datasource.uploadImage(event.image);
-      uploadResult.fold(
-        (errorUpload) => emit(_Error(errorUpload)),
-        (successUpload) async {
-          final result = await datasource.addProduct(AddProductRequestModel(
-              data: event.model.data.copyWith(
-                  photo: '${Constants.baseUrl}/${successUpload.url!}')));
-          await Future.sync(() => result.fold(
+      await Future.sync(() => uploadResult.fold(
+            (errorUpload) => emit(_Error(errorUpload)),
+            (successUpload) async {
+              final result = await datasource.addProduct(AddProductRequestModel(
+                  data: event.model.data.copyWith(
+                      photo: '${Constants.baseUrl}${successUpload.url!}')));
+              result.fold(
                 (l) => emit(_Error(l)),
                 (r) => emit(_Loaded(r)),
-              ));
-        },
-      );
+              );
+            },
+          ));
     });
   }
 }
