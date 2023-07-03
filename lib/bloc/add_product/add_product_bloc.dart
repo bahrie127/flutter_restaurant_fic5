@@ -25,7 +25,7 @@ class AddProductBloc extends Bloc<AddProductEvent, AddProductState> {
         (successUpload) async {
           final result = await datasource.addProduct(AddProductRequestModel(
               data: event.model.data.copyWith(
-                  photo: '${Constants.baseUrl}/api/${successUpload.url!}')));
+                  photo: '${Constants.baseUrl}/${successUpload.url!}')));
           await Future.sync(() => result.fold(
                 (l) => emit(_Error(l)),
                 (r) => emit(_Loaded(r)),
