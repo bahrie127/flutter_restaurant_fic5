@@ -25,6 +25,21 @@ class _DirectionPageState extends State<DirectionPage> {
 
   final Location location = Location();
 
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
+
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(size: Size(10, 10)),
+            "assets/markers/car.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+        });
+      },
+    );
+  }
+
   Future<void> setupLocation() async {
     late bool serviceEnabled;
     late PermissionStatus permissionGranted;
@@ -52,6 +67,7 @@ class _DirectionPageState extends State<DirectionPage> {
 
   @override
   void initState() {
+    addCustomIcon();
     super.initState();
 
     Future.microtask(() async {
@@ -80,9 +96,7 @@ class _DirectionPageState extends State<DirectionPage> {
           markers.add(Marker(
             markerId: const MarkerId('source'),
             position: latlng,
-            icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueRed,
-            ),
+            icon: markerIcon,
           ));
         });
       }

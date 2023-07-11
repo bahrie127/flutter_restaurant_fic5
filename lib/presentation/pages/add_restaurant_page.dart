@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_restaurant_fic5/bloc/add_product/add_product_bloc.dart';
 import 'package:flutter_restaurant_fic5/bloc/get_all_product/get_all_product_bloc.dart';
+import 'package:flutter_restaurant_fic5/bloc/gmap/gmap_bloc.dart';
 import 'package:flutter_restaurant_fic5/data/local_datasources/auth_local_datasource.dart';
 import 'package:flutter_restaurant_fic5/data/models/requests/add_product_request_model.dart';
+import 'package:flutter_restaurant_fic5/presentation/pages/gmap_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddRestaurantPage extends StatefulWidget {
@@ -26,6 +29,8 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
 
   List<XFile>? multiplePicture;
 
+  LatLng? position;
+
   void takePicture(XFile file) {
     picture = file;
     setState(() {});
@@ -41,6 +46,7 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
     nameController = TextEditingController();
     addressController = TextEditingController();
     descriptionController = TextEditingController();
+    context.read<GmapBloc>().add(const GmapEvent.getCurrentLocation());
     super.initState();
   }
 
@@ -118,10 +124,47 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
               decoration: const InputDecoration(labelText: 'Description'),
               maxLines: 3,
             ),
-            TextField(
-              controller: addressController,
-              decoration: const InputDecoration(labelText: 'Address'),
-              maxLines: 2,
+            BlocBuilder<GmapBloc, GmapState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                  loaded: (model) {
+                    position = model.latLng;
+                    addressController!.text = model.address ?? '';
+                    return Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: TextField(
+                            controller: addressController,
+                            decoration:
+                                const InputDecoration(labelText: 'Address'),
+                            maxLines: 2,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return GmapPage(
+                                    lat: model.latLng!.latitude,
+                                    long: model.latLng!.longitude,
+                                  );
+                                }));
+                              },
+                              child: const Text('Ganti')),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             ),
             const SizedBox(
               height: 16,
@@ -137,7 +180,7 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
                   loaded: (model) {
                     context
                         .read<GetAllProductBloc>()
-                        .add(GetAllProductEvent.getByUserId());
+                        .add(const GetAllProductEvent.getByUserId());
                     context.pop();
                   },
                 );
@@ -154,8 +197,12 @@ class _AddRestaurantPageState extends State<AddRestaurantPage> {
                               data: Data(
                             name: nameController!.text,
                             description: descriptionController!.text,
-                            latitude: '0',
-                            longitude: '0',
+                            latitude: position == null
+                                ? '0'
+                                : position!.latitude.toString(),
+                            longitude: position == null
+                                ? '0'
+                                : position!.longitude.toString(),
                             photo: 'https://picsum.photos/200/300',
                             address: addressController!.text,
                             userId: userId,

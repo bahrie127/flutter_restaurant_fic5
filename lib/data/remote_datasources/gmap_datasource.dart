@@ -45,24 +45,24 @@ class GmapDatasource {
         locationData.longitude!,
       );
 
-      // final info = await geo.placemarkFromCoordinates(
-      //   latLng.latitude,
-      //   latLng.longitude,
-      // );
+      final info = await geo.placemarkFromCoordinates(
+        latLng.latitude,
+        latLng.longitude,
+      );
 
-      // String? address;
+      String? address;
 
-      // if (info.isNotEmpty) {
-      //   final place = info[0];
-      //   address =
-      //       '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
-      // } else {
-      //   address = "Location not found ";
-      // }
+      if (info.isNotEmpty) {
+        final place = info[0];
+        address =
+            '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+      } else {
+        address = "Location not found ";
+      }
 
       return Right(GmapModel(
         latLng: latLng,
-        address: 'address',
+        address: address,
       ));
     } on PlatformException catch (e) {
       if (e.code == 'IO_ERROR') {

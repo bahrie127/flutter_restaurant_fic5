@@ -22,5 +22,17 @@ class GmapBloc extends Bloc<GmapEvent, GmapState> {
         (r) => emit(_Loaded(r)),
       );
     });
+
+    on<_GetSelectPosition>((event, emit) async {
+      emit(const _Loading());
+      final result = await datasource.getPosition(
+        lat: event.lat,
+        long: event.lat,
+      );
+      result.fold(
+        (l) => emit(_Error(l)),
+        (r) => emit(_Loaded(r)),
+      );
+    });
   }
 }

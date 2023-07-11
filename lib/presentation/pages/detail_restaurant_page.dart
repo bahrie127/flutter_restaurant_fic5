@@ -24,18 +24,35 @@ class _DetailRestaurantPageState extends State<DetailRestaurantPage> {
   void initState() {
     context.read<DetailProductBloc>().add(DetailProductEvent.get(widget.id));
     context.read<GmapBloc>().add(const GmapEvent.getCurrentLocation());
+    addCustomIcon();
     super.initState();
   }
 
   final Set<Marker> markers = {};
+  BitmapDescriptor markerIcon = BitmapDescriptor.defaultMarker;
+
+  void addCustomIcon() {
+    BitmapDescriptor.fromAssetImage(
+            const ImageConfiguration(size: Size(10, 10)),
+            "assets/markers/mappin.png")
+        .then(
+      (icon) {
+        setState(() {
+          markerIcon = icon;
+        });
+      },
+    );
+  }
 
   LatLng? position;
 
   void createMarker(double lat, double lng, String address) {
     final marker = Marker(
-        markerId: const MarkerId('currentPosition'),
-        infoWindow: InfoWindow(title: address),
-        position: LatLng(lat, lng));
+      markerId: const MarkerId('currentPosition'),
+      infoWindow: InfoWindow(title: address),
+      position: LatLng(lat, lng),
+      icon: markerIcon,
+    );
 
     markers.add(marker);
   }
